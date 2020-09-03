@@ -134,12 +134,10 @@ def run(context):
                                     callback=force_sync_handler)
         panel_.controls.addCommand(force_sync_cmd_def)
 
-        # If Fusion 360 is starting, wait until it has loaded before syncing.
-        events_manager_.add_handler(app_.startupCompleted, callback=lambda args: sync())
-
-        # If Fusion 360 is already started (add-in started in the Add-ins dialog), sync now.
-        if app_.isStartupComplete:
-            sync()
+        # Using startupCompleted does not let the UI load before we run, so it's no point in using that.
+        # Just running sync directly. Also, the benefit is that threads are more likely to be ready
+        # when Fusion checks for them.
+        sync()
 
 def stop(context):
     with error_catcher_:
