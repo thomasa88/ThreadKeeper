@@ -6,7 +6,7 @@
 	"description":	{
 		"":	"Reinstalls thread definitions every time they are removed."
 	},
-	"version":	"0.1.0",
+	"version":	"1.0.0",
 	"runOnStartup":	true,
 	"supportedOS":	"windows",
 	"editEnabled":	true
