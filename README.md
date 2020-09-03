@@ -1,6 +1,6 @@
 # ![](resources/logo/32x32.png) ThreadKeeper
 
-ThreadKeeper is an Autodesk® Fusion 360™ add-in that restores custom thread definitions every time they are removed (i.e. when Fusion 360™ is updated).
+ThreadKeeper is an Autodesk® Fusion 360™ add-in that restores [custom thread definitions](https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Custom-Threads-in-Fusion-360.html) every time they are removed (i.e. when Fusion 360™ is updated).
 
 Thread definitions to restore are put in the *Threads* directory of ThreadKeeper.
 
@@ -34,6 +34,18 @@ ThreadKeeper will sync the files every time Fusion 360™ starts
 To copy the files to Fusion 360™ directly, click *Force sync*. 
 
 The add-in can be temporarily disabled using the *Scripts and Add-ins* dialog. Press *Shift+S* in Fusion 360™ and go to the *Add-Ins* tab.
+
+## How do I get threads?
+
+This add-in does not contain any thread definitions.
+
+You can either create custom definitions yourself. See [Creating custom threads and thread standards in Fusion 360](https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Custom-Threads-in-Fusion-360.html).
+
+You can also download definitions that others have made.
+
+Examples:
+
+* [Fusion-360-FDM-threads](https://github.com/dans98/Fusion-360-FDM-threads)
 
 ## Known Limitations
 
