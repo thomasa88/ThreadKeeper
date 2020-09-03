@@ -162,7 +162,7 @@ def sync(force=False, always_msgbox=False):
     if always_msgbox or restore_count > 0:
         action = "Restored" if not force else "Synced"
         ui_.messageBox(f"{action} {restore_count} thread files.\n\n"
-                       "Please restart Fusion 360™ to reload the thread definitions.",
+                       "You might have to restart Fusion 360™ for the thread definitions to load.",
                        f"{NAME} Sync")
 
 
