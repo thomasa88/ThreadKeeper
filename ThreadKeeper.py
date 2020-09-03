@@ -96,7 +96,7 @@ def run(context):
             directory_cmd_def.deleteMe()
         directory_cmd_def = ui_.commandDefinitions.addButtonDefinition(DIRECTORY_CMD_DEF_ID,
                                                                        f'Open threads directory',
-                                                                       f'Open the threads directory of {NAME}.\n\n'
+                                                                       f'Open the {NAME} threads directory.\n\n'
                                                                        'Put threads that you want to keep into this directory.',
                                                                        './resources/thread_folder')
         events_manager_.add_handler(directory_cmd_def.commandCreated,
@@ -110,7 +110,7 @@ def run(context):
             fusion_directory_cmd_def.deleteMe()
         fusion_directory_cmd_def = ui_.commandDefinitions.addButtonDefinition(FUSION_DIRECTORY_CMD_DEF_ID,
                                                                        'Open Fusion 360™ directory',
-                                                                       'Open the threads directory of Fusion 360™.\n\n'
+                                                                       'Open the Fusion 360™ threads directory.\n\n'
                                                                        'This is the directory which Fusion 360™ reads '
                                                                        'threads from. Threads will be synced to this '
                                                                        'directory.',
@@ -124,11 +124,12 @@ def run(context):
             force_sync_cmd_def.deleteMe()
         force_sync_cmd_def = ui_.commandDefinitions.addButtonDefinition(FORCE_SYNC_CMD_DEF_ID,
                                                                        'Force sync',
-                                                                       f'Copies threads from the threads directory of {NAME} '
-                                                                       'to the threads directory of Fusion 360™. Files with '
-                                                                       'the same name are overwritten.\n\n'
-                                                                       'Use this command when you have put new versions of'
-                                                                       f'your thread files in {NAME} thread directory.',
+                                                                       f'Copies threads from the {NAME} threads directory'
+                                                                       'to the Fusion 360™ threads directory.\n\n'
+                                                                       'Files with the same name are overwritten. '
+                                                                       'No files are removed.\n\n'
+                                                                       'Use this command when you have put new (versions of) '
+                                                                       f'thread files in the {NAME} threads directory.',
                                                                        './resources/force_sync')
         events_manager_.add_handler(force_sync_cmd_def.commandCreated,
                                     callback=force_sync_handler)
