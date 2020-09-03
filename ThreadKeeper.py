@@ -95,7 +95,7 @@ def run(context):
         if directory_cmd_def:
             directory_cmd_def.deleteMe()
         directory_cmd_def = ui_.commandDefinitions.addButtonDefinition(DIRECTORY_CMD_DEF_ID,
-                                                                       f'Open threads directory',
+                                                                       f'Open ThreadKeeper directory',
                                                                        f'Open the {NAME} threads directory.\n\n'
                                                                        'Put threads that you want to keep into this directory.',
                                                                        './resources/thread_folder')
@@ -113,7 +113,9 @@ def run(context):
                                                                        'Open the Fusion 360™ threads directory.\n\n'
                                                                        'This is the directory which Fusion 360™ reads '
                                                                        'threads from. Threads will be synced to this '
-                                                                       'directory.',
+                                                                       'directory.\n\n'
+                                                                       'Open this directory to inspect what thread definitions '
+                                                                       'are installed and to remove thread definitions.',
                                                                        './resources/fusion_thread_folder')
         events_manager_.add_handler(fusion_directory_cmd_def.commandCreated,
                                     callback=lambda args: os.startfile(fusion_thread_dir_))
