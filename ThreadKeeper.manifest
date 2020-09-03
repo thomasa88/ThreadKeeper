@@ -1,0 +1,13 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"addin",
+	"id":	"03f156c7-86e3-4716-9777-1ebcbab4774d",
+	"author":	"Thomas Axelsson",
+	"description":	{
+		"":	"Reinstalls thread definitions every time they are removed."
+	},
+	"version":	"0.1.0",
+	"runOnStartup":	true,
+	"supportedOS":	"windows",
+	"editEnabled":	true
+}
