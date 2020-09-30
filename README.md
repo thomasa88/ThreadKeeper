@@ -71,6 +71,12 @@ This add-in is created by Thomas Axelsson.
 
 This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE).
 
+## More Fusion 360™ Add-ins
+
+[My Fusion 360™ app store page](https://apps.autodesk.com/en/Publisher/PublisherHomepage?ID=JLH9M8296BET)
+
+[All my add-ins on Github](https://github.com/topics/fusion-360?q=user%3Athomasa88)
+
 ## Changelog
 
 * v 1.1.0
