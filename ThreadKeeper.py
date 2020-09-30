@@ -28,6 +28,7 @@ import adsk.core, adsk.fusion, adsk.cam, traceback
 
 import os
 import pathlib
+import platform
 import shutil
 import subprocess
 
@@ -60,6 +61,7 @@ ui_ = None
 panel_ = None
 local_thread_dir_ = None
 fusion_thread_dir_ = None
+platform_ = platform.system()
 
 error_catcher_ = thomasa88lib.error.ErrorCatcher(msgbox_in_debug=False)
 events_manager_ = thomasa88lib.events.EventsManager(error_catcher_)
@@ -81,9 +83,19 @@ def run(context):
             os.mkdir(local_thread_dir_)
         
         # https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Custom-Threads-in-Fusion-360.html
+        # Windows location:
         # %localappdata%\Autodesk\webdeploy\Production\<version ID>\Fusion\Server\Fusion\Configuration\ThreadData
-        fusion_thread_dir_ = (pathlib.Path(thomasa88lib.utils.get_fusion_deploy_folder()) / 
-                             'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
+        # Mac location:
+        # /Users/<user>/Library/Application Support/Autodesk/webdeploy/production/<version ID>/Autodesk Fusion 360.app/Contents/Libraries/Applications/Fusion/Fusion/Server/Fusion/Configuration/ThreadData
+
+        fusion_deploy_folder = pathlib.Path(thomasa88lib.utils.get_fusion_deploy_folder())
+        if platform_ == 'Windows':
+            fusion_thread_dir_ = (fusion_deploy_folder /
+                                 'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
+        else:
+            fusion_thread_dir_ = (fusion_deploy_folder /
+                                  'Autodesk Fusion 360.app' / 'Contents' / 'Libraries' / 'Applications' /
+                                  'Fusion' / 'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
         
         tab = ui_.allToolbarTabs.itemById('ToolsTab')
         panel_ = tab.toolbarPanels.itemById(PANEL_ID)
@@ -100,7 +112,7 @@ def run(context):
                                                                        'Put threads that you want to keep into this directory.',
                                                                        './resources/thread_folder')
         events_manager_.add_handler(directory_cmd_def.commandCreated,
-                                    callback=lambda args: os.startfile(local_thread_dir_))
+                                    callback=lambda args: open_folder(local_thread_dir_))
         directory_control = panel_.controls.addCommand(directory_cmd_def)
         directory_control.isPromoted = True
         directory_control.isPromotedByDefault = True
@@ -118,7 +130,7 @@ def run(context):
                                                                        'are installed and to remove thread definitions.',
                                                                        './resources/fusion_thread_folder')
         events_manager_.add_handler(fusion_directory_cmd_def.commandCreated,
-                                    callback=lambda args: os.startfile(fusion_thread_dir_))
+                                    callback=lambda args: open_folder(fusion_thread_dir_))
         panel_.controls.addCommand(fusion_directory_cmd_def)
 
         force_sync_cmd_def = ui_.commandDefinitions.itemById(FORCE_SYNC_CMD_DEF_ID)
@@ -148,6 +160,12 @@ def stop(context):
 
         panel_.deleteMe()
 
+def open_folder(path):
+    if platform_ == 'Windows':
+        os.startfile(path)
+    else:
+        subprocess.Popen(['open', '--', str(path)])
+
 def sync(force=False, always_msgbox=False):
     global local_thread_dir_
     global fusion_thread_dir_
@@ -159,8 +177,10 @@ def sync(force=False, always_msgbox=False):
         dest_file = fusion_thread_dir_ / src_file.name
         if force or not dest_file.exists():
             # shutil is extremely slow. Using shell instead.
-            #shutil.copyfile(src_file, dest_file)
-            subprocess.call(f'copy "{src_file}" "{dest_file}"', shell=True)
+            if platform_ == 'Windows':
+                subprocess.check_call(f'copy "{src_file}" "{dest_file}"', shell=True)
+            else:
+                subprocess.check_call(f'cp -- "{src_file}" "{dest_file}"', shell=True)
             restore_count += 1
     if always_msgbox or restore_count > 0:
         action = "Restored" if not force else "Synced"
