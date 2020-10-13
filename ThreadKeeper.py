@@ -51,7 +51,6 @@ importlib.reload(thomasa88lib.manifest)
 importlib.reload(thomasa88lib.error)
 
 PANEL_ID = 'thomasa88_ThreadKeeperPanel'
-MAIN_DROPDOWN_ID = 'thomasa88_ThreadKeeperMainDropdown'
 DIRECTORY_CMD_DEF_ID = 'thomasa88_ThreadKeeperDirectory'
 FUSION_DIRECTORY_CMD_DEF_ID = 'thomasa88_ThreadKeeperFusionDirectory'
 FORCE_SYNC_CMD_DEF_ID = 'thomasa88_ThreadKeeperForceSync'
