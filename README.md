@@ -37,7 +37,9 @@ Note that the files in ThreadKeeper's directory can be stored in a nested fashio
 
 ThreadKeeper will sync the files every time Fusion 360™ starts
 
-To copy the files to Fusion 360™ directly, click *Force sync*. 
+To copy the files to Fusion 360™ directly, click *Force sync*.
+
+To change which directory where threads are stored within ThreadKeeper, click *Change ThreadKeeper directory...*.
 
 The add-in can be temporarily disabled using the *Scripts and Add-ins* dialog. Press *Shift+S* in Fusion 360™ and go to the *Add-Ins* tab.
 
@@ -79,6 +81,8 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 
 ## Changelog
 
+* v 1.2.0
+  * Option to change threads directory.
 * v 1.1.0
   * Support for Mac
 * v 1.0.0
