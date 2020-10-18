@@ -92,9 +92,8 @@ def run(context):
         ui_ = app_.userInterface
 
         local_thread_dir = get_thread_dir()
-        if not os.path.exists(local_thread_dir):
-            os.mkdir(local_thread_dir)
-        
+        create_thread_dir(local_thread_dir)
+
         # https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Custom-Threads-in-Fusion-360.html
         # Windows location:
         # %localappdata%\Autodesk\webdeploy\Production\<version ID>\Fusion\Server\Fusion\Configuration\ThreadData
@@ -250,9 +249,8 @@ def change_dir_handler(args: adsk.core.CommandCreatedEventArgs):
 
         if move_answer == adsk.core.DialogResults.DialogCancel:
             return
-        
-        if not os.path.exists(new_dir):
-            os.mkdir(new_dir)
+
+        create_thread_dir(new_dir)
 
         set_thread_dir(new_dir)
 
@@ -290,3 +288,7 @@ def change_dir_handler(args: adsk.core.CommandCreatedEventArgs):
 
         ui_.messageBox(f'Thread directory changed!\n\n'
                        f'Old: {old_dir}\nNew: {new_dir}', f'{NAME}')
+
+def create_thread_dir(dir_path):
+    dir_path.mkdir(exist_ok=True)
+
