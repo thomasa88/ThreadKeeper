@@ -55,6 +55,7 @@ DIRECTORY_CMD_DEF_ID = 'thomasa88_ThreadKeeperDirectory'
 FUSION_DIRECTORY_CMD_DEF_ID = 'thomasa88_ThreadKeeperFusionDirectory'
 FORCE_SYNC_CMD_DEF_ID = 'thomasa88_ThreadKeeperForceSync'
 CHANGE_DIR_CMD_DEF_ID = 'thomasa88_ThreadKeeperChangeDirectory'
+FILE_DIR = pathlib.Path(os.path.realpath(__file__)).parent
 
 app_ = None
 ui_ = None
@@ -291,4 +292,15 @@ def change_dir_handler(args: adsk.core.CommandCreatedEventArgs):
 
 def create_thread_dir(dir_path):
     dir_path.mkdir(exist_ok=True)
+    set_thread_dir_icon(dir_path)
 
+def set_thread_dir_icon(dir_path):
+######## do this instead: https://stackoverflow.com/questions/4662759/how-to-change-folder-icons-with-python-on-windows
+    desktop_ini_path = dir_path / 'desktop.ini'
+    if not desktop_ini_path.exists():
+        icon_path = FILE_DIR / 'icon16.ico'
+        with desktop_ini_path.open('w') as desktop_ini:
+            desktop_ini.writelines([
+                '[.ShellClassInfo]\r\n',
+                f'IconResource="{icon_path}",0\r\n',
+            ])
