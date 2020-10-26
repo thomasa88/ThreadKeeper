@@ -54,6 +54,7 @@ You can also download definitions that others have made.
 Examples:
 
 * [Fusion-360-FDM-threads](https://github.com/dans98/Fusion-360-FDM-threads)
+* [CustomThreads](https://github.com/BalzGuenat/CustomThreads)
 
 ## Known Limitations
 
