@@ -109,7 +109,7 @@ def run(context):
                                   'Autodesk Fusion 360.app' / 'Contents' / 'Libraries' / 'Applications' /
                                   'Fusion' / 'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
         
-        tab = ui_.allToolbarTabs.itemById('ToolsTab')
+        tab = ui_.workspaces.itemById('FusionSolidEnvironment').toolbarTabs.itemById('ToolsTab')
         panel_ = tab.toolbarPanels.itemById(PANEL_ID)
         if panel_:
             panel_.deleteMe()
