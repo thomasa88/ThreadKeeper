@@ -82,6 +82,8 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 
 ## Changelog
 
+* v 1.2.1
+  * Fix for start-up error due to Utilites Tab not being loaded.
 * v 1.2.0
   * Option to change threads directory.
 * v 1.1.0
