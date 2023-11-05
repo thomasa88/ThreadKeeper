@@ -70,6 +70,10 @@ For better support, please include the steps you performed and the result. Also 
 
 This add-in is created by Thomas Axelsson.
 
+## Contributors
+
+* Sune Trudslev
+
 ## License
 
 This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE).
@@ -83,7 +87,7 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 ## Changelog
 
 * v 1.2.1
-  * Fix for start-up error due to Utilites Tab not being loaded.
+  * Fix for start-up error due to Utilites Tab not being loaded. Contributed by Sune Trudslev.
 * v 1.2.0
   * Option to change threads directory.
 * v 1.1.0
