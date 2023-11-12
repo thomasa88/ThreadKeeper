@@ -88,6 +88,7 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 
 * v 1.2.1
   * Fix for start-up error due to Utilites Tab not being loaded. Contributed by Sune Trudslev.
+  * Fix problem loading add-in in Fusion 360™ Insider Preview.
 * v 1.2.0
   * Option to change threads directory.
 * v 1.1.0
