@@ -106,7 +106,7 @@ def run(context):
                                  'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
         else:
             fusion_thread_dir_ = (fusion_deploy_folder /
-                                  'Autodesk Fusion 360.app' / 'Contents' / 'Libraries' / 'Applications' /
+                                  'Autodesk Fusion.app' / 'Contents' / 'Libraries' / 'Applications' /
                                   'Fusion' / 'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
         
         tab = ui_.workspaces.itemById('FusionSolidEnvironment').toolbarTabs.itemById('ToolsTab')
