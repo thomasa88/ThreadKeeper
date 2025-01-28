@@ -1,10 +1,10 @@
 # ![](resources/logo/32x32.png) ThreadKeeper
 
-ThreadKeeper is an Autodesk® Fusion 360™ add-in that restores [custom thread definitions](https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Custom-Threads-in-Fusion-360.html) every time they are removed (i.e. when Fusion 360™ is updated).
+ThreadKeeper is an Autodesk® Fusion add-in that restores [custom thread definitions](https://knowledge.autodesk.com/support/fusion-360/learn-explore/caas/sfdcarticles/sfdcarticles/Custom-Threads-in-Fusion-360.html) every time they are removed (i.e. when Fusion is updated).
 
 Thread definitions to restore are put in the *Threads* directory of ThreadKeeper.
 
-Every time Fusion 360™ starts, ThreadKeeper checks if thread definition files are missing. In that case, the files are restored.
+Every time Fusion starts, ThreadKeeper checks if thread definition files are missing. In that case, the files are restored.
 
 ![Main menu](menu_screenshot.png)
 
@@ -25,23 +25,23 @@ Make sure the directory is named `ThreadKeeper`, with no suffix.
 
 ## Usage
 
-Start by storing thread definitions inside ThreadKeeper's threads directory. Open the directory by clicking *TOOLS* -> *THREADKEEPER* -> *Open ThreadKeeper directory*.
+Start by storing thread definitions inside ThreadKeeper's threads directory. Open the directory by clicking *UTILITIES* -> *THREADKEEPER* -> *Open ThreadKeeper directory*.
 
-If you already have thread definitions added to Fusion 360™ that you want to keep, open the Fusion 360™ threads directory and copy them to ThreadKeeper's threads directory.
+If you already have thread definitions added to Fusion that you want to keep, open the Fusion threads directory and copy them to ThreadKeeper's threads directory.
 
-Note that the files in ThreadKeeper's directory can be stored in a nested fashion (i.e. inside multiple directories). Note, however, that the file structure will be flattened when copied to the Fusion 360™ threads directory.
+Note that the files in ThreadKeeper's directory can be stored in a nested fashion (i.e. inside multiple directories). Note, however, that the file structure will be flattened when copied to the Fusion threads directory.
 
 ![Threads directory](nested_files_screenshot.png)
 
 
 
-ThreadKeeper will sync the files every time Fusion 360™ starts
+ThreadKeeper will sync the files every time Fusion starts
 
-To copy the files to Fusion 360™ directly, click *Force sync*.
+To copy the files to Fusion directly, click *Force sync*.
 
 To change which directory where threads are stored within ThreadKeeper, click *Change ThreadKeeper directory...*.
 
-The add-in can be temporarily disabled using the *Scripts and Add-ins* dialog. Press *Shift+S* in Fusion 360™ and go to the *Add-Ins* tab.
+The add-in can be temporarily disabled using the *Scripts and Add-ins* dialog. Press *Shift+S* in Fusion and go to the *Add-Ins* tab.
 
 ## How do I get threads?
 
@@ -78,9 +78,9 @@ This add-in is created by Thomas Axelsson.
 
 This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE).
 
-## More Fusion 360™ Add-ins
+## More Fusion Add-ins
 
-[My Fusion 360™ app store page](https://apps.autodesk.com/en/Publisher/PublisherHomepage?ID=JLH9M8296BET)
+[My Fusion app store page](https://apps.autodesk.com/en/Publisher/PublisherHomepage?ID=JLH9M8296BET)
 
 [All my add-ins on Github](https://github.com/topics/fusion-360?q=user%3Athomasa88)
 
@@ -88,7 +88,7 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 
 * v 1.2.1
   * Fix for start-up error due to Utilites Tab not being loaded. Contributed by Sune Trudslev.
-  * Fix problem loading add-in in Fusion 360™ Insider Preview.
+  * Fix problem loading add-in in Fusion Insider Preview.
 * v 1.2.0
   * Option to change threads directory.
 * v 1.1.0
