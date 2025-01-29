@@ -73,6 +73,7 @@ This add-in is created by Thomas Axelsson.
 ## Contributors
 
 * Sune Trudslev
+* ACIDHAM
 
 ## License
 
@@ -86,6 +87,8 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 
 ## Changelog
 
+* v 1.2.2
+  * Fix for new Fusion deploy folder on Mac. Contributed by ACIDHAM.
 * v 1.2.1
   * Fix for start-up error due to Utilites Tab not being loaded. Contributed by Sune Trudslev.
   * Fix problem loading add-in in Fusion Insider Preview.
