@@ -87,6 +87,8 @@ This project is licensed under the terms of the MIT license. See [LICENSE](LICEN
 
 ## Changelog
 
+* v 1.2.3
+  * Handle both old and new Mac Fusion thread directory.
 * v 1.2.2
   * Fix for new Fusion deploy folder on Mac. Contributed by ACIDHAM.
 * v 1.2.1
