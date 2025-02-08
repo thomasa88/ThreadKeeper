@@ -133,9 +133,9 @@ def run(context):
         if fusion_directory_cmd_def:
             fusion_directory_cmd_def.deleteMe()
         fusion_directory_cmd_def = ui_.commandDefinitions.addButtonDefinition(FUSION_DIRECTORY_CMD_DEF_ID,
-                                                                       'Open Fusion 360™ directory',
-                                                                       'Open the Fusion 360™ threads directory.\n\n'
-                                                                       'This is the directory which Fusion 360™ reads '
+                                                                       'Open Fusion directory',
+                                                                       'Open the Fusion threads directory.\n\n'
+                                                                       'This is the directory which Fusion reads '
                                                                        'threads from. Threads will be synced to this '
                                                                        'directory.\n\n'
                                                                        'Open this directory to inspect what thread definitions '
@@ -151,7 +151,7 @@ def run(context):
         force_sync_cmd_def = ui_.commandDefinitions.addButtonDefinition(FORCE_SYNC_CMD_DEF_ID,
                                                                        'Force sync',
                                                                        f'Copies threads from the {NAME} threads directory'
-                                                                       'to the Fusion 360™ threads directory.\n\n'
+                                                                       'to the Fusion threads directory.\n\n'
                                                                        'Files with the same name are overwritten. '
                                                                        'No files are removed.\n\n'
                                                                        'Use this command when you have put new (versions of) '
@@ -214,12 +214,12 @@ def sync(force=False, always_msgbox=False):
     if always_msgbox or restore_count > 0:
         action = "Restored" if not force else "Synced"
         ui_.messageBox(f"{action} {restore_count} thread files.\n\n"
-                       "You might have to restart Fusion 360™ for the thread definitions to load.",
+                       "You might have to restart Fusion for the thread definitions to load.",
                        f"{NAME} Sync")
 
 
 def force_sync_handler(args: adsk.core.CommandCreatedEventArgs):
-    answer = ui_.messageBox('Any old thread files in the Fusion 360™ directory will be overwritten. Continue?',
+    answer = ui_.messageBox('Any old thread files in the Fusion directory will be overwritten. Continue?',
                             f'{NAME} Sync Confirmation', adsk.core.MessageBoxButtonTypes.YesNoButtonType)
     if answer == adsk.core.DialogResults.DialogYes:
         sync(force=True, always_msgbox=True)
