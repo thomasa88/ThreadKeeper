@@ -106,9 +106,14 @@ def run(context):
                                  'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
         else:
             fusion_thread_dir_ = (fusion_deploy_folder /
-                                  'Autodesk Fusion.app' / 'Contents' / 'Libraries' / 'Applications' /
+                                  'Autodesk Fusion 360.app' / 'Contents' / 'Libraries' / 'Applications' /
                                   'Fusion' / 'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
-        
+            if not fusion_thread_dir_.exists():
+                # New(?) directory on Mac, which drops "360" from the app name.
+                fusion_thread_dir_ = (fusion_deploy_folder /
+                                      'Autodesk Fusion.app' / 'Contents' / 'Libraries' / 'Applications' /
+                                      'Fusion' / 'Fusion' / 'Server' / 'Fusion' / 'Configuration' / 'ThreadData')
+
         tab = ui_.workspaces.itemById('FusionSolidEnvironment').toolbarTabs.itemById('ToolsTab')
         panel_ = tab.toolbarPanels.itemById(PANEL_ID)
         if panel_:
@@ -176,6 +181,10 @@ def run(context):
         events_manager_.add_handler(change_dir_cmd_def.commandCreated,
                                     callback=change_dir_handler)
         panel_.controls.addCommand(change_dir_cmd_def)
+
+
+        if not fusion_thread_dir_.exists():
+            raise Exception(f"Could not find Fusion thread directory! It will not be possible to sync threads. Tried: {fusion_thread_dir_}")
 
         # Using startupCompleted does not let the UI load before we run, so it's no point in using that.
         # Just running sync directly. Also, the benefit is that threads are more likely to be ready
